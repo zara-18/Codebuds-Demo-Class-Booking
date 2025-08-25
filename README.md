@@ -24,3 +24,11 @@ Frontend: HTML, CSS, JavaScript
 Database: SQLite (default)
 
 Version Control: Git + GitHub
+
+
+
+
+
+
+
+
