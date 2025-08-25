@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>CodeBuds | Coding Classes for Kids</title>
+    <!---Cutom CSS link-->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" > 
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <meta http-equiv="Cache-Control" content="no-store" />
+  </head>
+<body>
+  <!---Start Header-->
+  <header>
+    <a href="#" class="logo">
+      <img class="logo" src="static/images/codebuds-logo.png">
+    </a>
+    <ul class="navbar">
+      <li><a href="#home">Coding</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about-us">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="header-icons">
+      <a href="{% url 'enroll' %}"><i class='bx  bx-user-plus'  ></i> </a>
+      <a href="#"><i class='bx  bx-code-alt'  ></i> </a>
+      <a href="#"><i class='bx  bx-phone'  ></i>  </a>
+      <div><i class='bx  bx-menu' id="menu-icon"></i></div>
+    </div>
+  </header>
+  
+  <!---Start Home section-->
+  <section class="home" id="home">
+    <div class="home-text">
+      <h6>CodeBuds – Where Kids Code with Joy!</h6>
+      <h1>Accesible Coding Courses For All</h1>
+      <p>At CodeBuds, we believe learning to code should be fun, creative, and child-friendly.
+         Our mission is to spark young minds with the magic of coding through play</p>
+      {% if message %}
+        <p id="django-messages">{{ message }}</p>
+      {% endif %}
+      
+         <div class="latter">
+        <form method="POST">
+          {% csrf_token %}
+          <input type="tel" placeholder="Phone Number" name="phone" class="phone" value="+92" required>
+          <input type="submit" value="Free Class" required>
+        </form>
+        <div class="dropdown-opt">
+        <span class="iconify" id="iconify" data-icon="flag:pk-4x3"></span>
+        </div>
+      </div>
+      <div class="options">
+        <input type="text" class="search-box" placeholder="search county name">
+        <ol>
+          {%for opt in options %}
+          <li class="option">
+            <div>
+              <span class="iconify" data-icon="flag:{{opt.code|lower}}-4x3"></span>
+              <span class="country-name">{{opt.name}}</span>
+            </div>
+            <strong>+{{opt.phone}}</strong>
+          </li>
+          {%endfor%}
+        </ol>
+      </div>
+      
+    </div>
+
+    <div class="home-img">
+      <img src="static/images/home1.png">
+    </div>
+    
+
+  </section>
+  <!---Start Container section-->
+  <section class="container">
+    <div class="container-box">
+      <div class="container-img">
+        <img src="static/images/coding.png">
+      </div>
+      <div class="container-text">
+        <h4>5K</h4>
+        <p>Coding Classes</p>
+      </div>
+    </div>
+    <div class="container-box">
+      <div class="container-img">
+        <img src="static/images/degree.png">
+      </div>
+      <div class="container-text">
+        <h4>5K</h4>
+        <p>Coding Classes</p>
+      </div>
+    </div>
+    <div class="container-box">
+      <div class="container-img">
+        <img src="static/images/gaming.png">
+      </div>
+      <div class="container-text">
+        <h4>5K</h4>
+        <p>Coding Classes</p>
+      </div>  
+    </div>
+
+    <div class="container-box">
+      <div class="container-img">
+        <img src="static/images/chat.png">
+      </div>
+      <div class="container-text">
+        <h4>5K</h4>
+        <p>Coding Classes</p>
+      </div>
+    </div>  
+
+  </section>
+  <!---Start Categories section-->
+  <section class="categories" id="categories">
+    <div class="center-text">
+      <h5>CATEGORIES</h5>
+      <h2>Popular Categories</h2>
+    </div>
+    <div class="categories-content">
+      <div class="box">
+        <img src="static/images/code.png" >
+        <h3>Angular Development</h3>
+        <p>5 Courses</p>
+      </div>
+      <div class="box">
+        <img src="static/images/scratch.png" >
+        <h3>Angular Development</h3>
+        <p>5 Courses</p>
+      </div>
+      <div class="box">
+        <img src="static/images/html.png" >
+        <h3>Angular Development</h3>
+        <p>5 Courses</p>
+      </div>
+      <div class="box">
+        <img src="static/images/python.png" >
+        <h3>Angular Development</h3>
+        <p>5 Courses</p>
+      </div>
+    </div>  
+      <div class="main-btn">
+        <a href="" class="btn">All Categories</a>
+      </div>
+  </section>
+  <!---Start Categories section-->
+  <section class="courses" id="courses">
+    <div class="center-text">
+      <h5>COURSES</h5>
+      <h2>Explore Popular Courses</h2>
+    </div>
+    <div class="courses-content">
+      <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+  
+      <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+     <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <img src="static/images/g1.jpg" >
+        <div class="courses-text">
+          <h5>Grade 1-2 </h5>
+          <h3>The Complete HTML, CSS and JS Course</h3>
+          <h6>05 hours 15 minutes</h6>
+
+          <div class="rating">
+            <div class="star">
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+              <a href="#"><i class='bx bxs-star'></i></a>
+            </div>
+
+            <div class="review">
+              <p>{5 Reviews}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    
+    
+    
+       
+   
+    <div class="main-btn">
+        <a href="{% url 'enroll' %}" class="btn">Take a Free Trial Class</a>
+      </div>   
+  </section>
+  <!---Start Cta section-->
+  <section class="cta" id="cta">
+    <div class="center-text">
+      <h5>Trusted By</h5>
+      <h2>500+ Parents Around the Globe</h2>
+    </div>
+    <div class="cta-content">
+      <div class="cta-img">
+        <img src="static/images/cta.png">
+      </div>
+      <div class="cta-img">
+        <img src="static/images/cta.png">
+      </div>
+      <div class="cta-img">
+        <img src="static/images/cta.png">
+      </div>
+    </div>
+
+  </section>
+  <!---Start About-Us section-->
+  <section class="about-us" id="about-us">
+    <div class="about-img">
+      <img src="static/images/aboutus.png">
+    </div>
+    <div class="about-text">
+      <h2>CodeBuds is where creativity meets coding!</h2>
+      <p>We're on a mission to introduce young minds to the world of technology through fun, hands-on learning.
+         From simple drag-and-drop games to real coding logic, we make tech exciting and accessible for kids grade 1-10.</p>
+      <h4>Shaping Young Coders</h4>
+      <h5>Where Learning Meets Fun</h5>  
+       <a href="" class="btn">Read More</a> 
+    </div>  
+
+  </section>
+  <!---Start Contact section-->
+  <section class="contact" id="contact">
+    <div class="main-contact">
+       <div class="contact-content">
+        <img src="static/images/codebuds-logo.png">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Youtube</a></li>
+      </div>
+      <div class="contact-content">
+        <li><a href="#coding">Coding</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </div>
+      <div class="contact-content">
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="{% url 'enroll' %}">Register</a></li>
+        <li><a href="#">Instructor</a></li>
+        <li><a href="#">Dashboard</a></li>
+      </div>
+      <div class="contact-content">
+        <li><a href="#">Pakistan,<br>Karachi</a></li>
+        <li><a href="#">codebuds@example.com</a></li>
+        <li><a href="#">+921234567890</a></li>
+      </div>
+    </div>
+    
+  </section>
+  <div class="last-text">
+    <p>© 2025 Zahra Alishah.All rights reserved</p>
+  </div>
+  
+  <!---Cutom Js link-->
+  <script type="text/javascript" src="/static/js/script.js"></script>
+  
+
+</body>
+</html>

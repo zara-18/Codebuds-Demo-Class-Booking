@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>CodeBuds | Coding Classes for Kids</title>
+    <!---Cutom CSS link-->
+    <link rel="stylesheet" type="text/css" href="../static/css/enroll.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" > 
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  </head>
+<body>
+  <!---Start Header-->
+  <header>
+    <a href="{% url 'home' %}" class="logo">
+      <img class="logo" src="../static/images/codebuds-logo.png">
+    </a>
+    
+    
+</header>
+<section class="schedule_class">
+  <div class="schedule_class_container">
+    <div class="schedule_class_img"><img src="../static/images/schedule-class.png"></div>
+    <div class="set_schedule_class">
+        <h2>Enroll a Free Class</h2>
+        <form method="post">
+        {% csrf_token %}
+      <div class="flagphone">
+        <input type="tel" placeholder="Phone Number" name="phone" class="phone" value="+92" required>
+        <div class="dropdown-opt">
+        <span class="iconify" id="iconify" data-icon="flag:pk-4x3"></span>
+        </div>
+      </div>
+      <div class="options">
+        <input type="text" class="search-box" placeholder="search county name">
+        <ol>
+          {%for opt in options %}
+          <li class="option">
+            <div>
+              <span class="iconify" data-icon="flag:{{opt.code|lower}}-4x3"></span>
+              <span class="country-name">{{opt.name}}</span>
+            </div>
+            <strong>+{{opt.phone}}</strong>
+          </li>
+          {%endfor%}
+        </ol>
+      </div>
+      <input type="email" class="email" placeholder="Enter your email" name="email" value="{{email}}"required>   
+      <select class="grade" id="grade" name="grade" required>
+          <option value="">-- Select Grade --</option>
+          <option value="">Grade 1-2</option>
+          <option value="">Grade 3-4</option>
+          <option value="">Grade 5-6</option>
+          <option value="">Grade 7-8</option>
+          <option value="">Grade 9-10</option>
+      </select> 
+   
+      <div class="schedule_class_date">
+        <label for="class-date">Select Date:</label>
+        <input type="date" class="class-date" id="class-date" name="class-date" required>
+        <label for="class-time">Select Time:</label>
+        <div class="fixed-time" id="time-slot">5:00 PM - 6:00 PM</div>
+      </div>
+      <div class="schedule_class_btn">
+          <button type="submit"  id="book-btn">Book Free Class</button>
+      </div>
+      </form>
+        {% if message %}
+        <div class="msg" id="confirmation-msg">{{message}}</div>
+        {% endif %}
+    </div>
+  </div>
+</section>
+<script type="text/javascript" src="../static/js/script.js"></script>
+</body>
+</html> 

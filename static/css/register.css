@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+:root{
+    --bg-color: #ffffff;
+    --text-color: #22100d;
+    --second-color: #685f78;
+    --main-color: #f66962;
+    --big-font: 3.7rem;
+    --h2-font:2.5rem;
+    --p-font:1.1rem;
+}
+.logo img{
+      width: 80px; /* Set a specific width */
+      height: auto; /* Maintain aspect ratio */
+     /* margin-left: -51px; */
+     max-width: 100%;
+    }
+header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index: 1000;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 23px 13%;
+    transition: all .40s ease;
+}
+
+
+
+
+.body {
+      background:url(../images/bg.jpg);
+      width: 100%;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+.form-container {
+    background:var(--bg-color);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 380px;
+    }
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:var(--main-color);
+    
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color:var(--text-color);
+  font: var(--p-font);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  font-size: 14px;
+}
+select {
+      appearance: none; /* remove default arrow */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: #fdfdfd url("data:image/svg+xml;utf8,<svg fill='gray' height='20' width='20' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>") no-repeat right 10px center;
+      background-size: 12px;
+      cursor: pointer;
+      color: var(--second-color);
+    }
+
+    
+
+select    
+option {
+  padding: 10px;
+  background: white;
+  color:var(--second-color);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background:var(--main-color);
+  color: white;
+  font:var(--h2-font);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(0.95);
+}

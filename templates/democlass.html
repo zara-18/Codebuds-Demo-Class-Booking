@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>CodeBuds | Coding Classes for Kids</title>
+    <!---Cutom CSS link-->
+    <link rel="stylesheet" type="text/css" href="/static/css/bookclass.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" > 
+  </head>
+<body>
+  <!---Start Header-->
+  <header>
+    <a href="{% url 'home' %}" class="logo">
+      <img class="logo" src="../static/images/codebuds-logo.png">
+    </a>
+    
+    <div class="header-icons">
+     <a href="{% url 'logout' %}"> <button type="button">Logout</button> </a>
+    </div>
+  </header>
+  <section class="schedule_class">
+    <div class="schedule_class_container">
+      <div class="schedule_class_img"><img src="../static/images/schedule-class.png"></div>
+      <div class="set_schedule_class">
+        <h2>Schedule a Free Class</h2>
+        <form method="post">
+        {% csrf_token %}
+        <input type="email" class="email" placeholder="Enter your email" name="email" value="{{email}}"required>   
+        <select class="grade" id="grade" name="grade" required>
+          <option value="">-- Select Grade --</option>
+          <option value="">Grade 1-2</option>
+          <option value="">Grade 3-4</option>
+          <option value="">Grade 5-6</option>
+          <option value="">Grade 7-8</option>
+          <option value="">Grade 9-10</option>
+        </select>    
+         <div class="schedule_class_date">
+          <label for="class-date">Select Date:</label>
+        <input type="date" class="class-date" id="class-date" name="class-date" required>
+        <label for="class-time">Select Time:</label>
+        <div class="fixed-time" id="time-slot">5:00 PM - 6:00 PM</div>
+        </div>
+        <div class="schedule_class_btn">
+          <button type="submit"  id="book-btn">Book Free Class</button>
+        </div>
+        </form>
+        {% if message %}
+        <div class="msg" id="confirmation-msg">{{message}}</div>
+        {% endif %}
+      </div>
+     
+    </div>
+</section>
+<script type="text/javascript" src="../static/js/demo.js"></script>
+</body>
+</html> 
